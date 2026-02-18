@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Google Calendar Static Builder</title>
+  <link rel="stylesheet" href="./style.css" />
+
+  <!-- Libraries (no build step) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.0.0/ical.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+</head>
+<body>
+  <header class="top">
+    <div class="brand">
+      <div class="badge">31</div>
+      <div>
+        <div class="h1">Google Calendar Static Builder</div>
+        <div class="sub">
+          Upload an <code>.ics</code> export → download a Google-style static calendar site (ZIP).
+          <strong>Processing happens locally in your browser.</strong>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="card">
+      <h2>Upload .ics</h2>
+      <input id="icsFile" type="file" accept=".ics,text/calendar" />
+
+      <div class="row">
+        <label>Site title (optional)
+          <input id="title" type="text" placeholder="My Calendar Archive" />
+        </label>
+      </div>
+
+      <div class="grid">
+        <label>Start year (optional)
+          <input id="startYear" type="number" placeholder="e.g. 2016" />
+        </label>
+        <label>End year (optional)
+          <input id="endYear" type="number" placeholder="e.g. 2026" />
+        </label>
+      </div>
+
+      <h3>Privacy toggles</h3>
+      <div class="checks">
+        <label><input type="checkbox" id="stripDescription" checked /> Strip descriptions</label>
+        <label><input type="checkbox" id="stripLocation" /> Strip locations</label>
+        <label><input type="checkbox" id="titlesOnly" /> Titles only (strip both)</label>
+      </div>
+
+      <h3>Output</h3>
+      <div class="grid">
+        <label>Output folder name in ZIP
+          <input id="folderName" type="text" value="calendar_site" />
+        </label>
+        <label>Timezone label (display only)
+          <input id="tzLabel" type="text" value="Local" />
+        </label>
+      </div>
+
+      <div class="actions">
+        <button id="buildBtn" class="primary" disabled type="button">Generate ZIP</button>
+        <button id="demoBtn" class="ghost" type="button">Load demo .ics</button>
+      </div>
+
+      <div id="status" class="status">Upload an .ics file to begin.</div>
+
+      <details class="details">
+        <summary>Notes</summary>
+        <ul>
+          <li>Recurring events are expanded in-browser (RRULE + overrides).</li>
+          <li>For huge calendars, limit the year range to keep builds fast.</li>
+          <li>After download: unzip → open the generated <code>index.html</code>.</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="card">
+      <h2>What this generates</h2>
+      <p class="muted">
+        A ZIP containing a static site you can open offline:
+      </p>
+      <ul class="muted">
+        <li><code>index.html</code></li>
+        <li><code>assets/app.js</code> + <code>assets/style.css</code></li>
+        <li><code>data/meta.js</code> + <code>data/events_by_date.js</code></li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div>Privacy-first: your .ics never leaves your device.</div>
+  </footer>
+
+  <script src="./builder.js"></script>
+</body>
+</html>
