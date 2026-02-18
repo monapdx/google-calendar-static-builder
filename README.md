@@ -15,7 +15,7 @@ Everything runs locally in your browser.
 ## 🚀 Live Tool
 
 👉 Use it here:\
-https://YOURUSERNAME.github.io/google-calendar-static-builder/
+[https://monapdx.github.io/google-calendar-static-builder/](https://monapdx.github.io/google-calendar-static-builder/)
 
 ------------------------------------------------------------------------
 
