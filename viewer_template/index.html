@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{{SITE_TITLE}}</title>
+  <link rel="stylesheet" href="./assets/style.css" />
+</head>
+<body>
+  <div class="topbar">
+    <div class="logo">
+      <div class="logo-badge">31</div>
+      <div>
+        <div id="calName" style="font-weight:700;">Calendar</div>
+        <div class="title">Static replica (read-only)</div>
+      </div>
+    </div>
+
+    <div class="navbtns">
+      <button class="primarybtn" id="todayBtn">Today</button>
+      <button class="iconbtn" id="prev" title="Previous month">◀</button>
+      <button class="iconbtn" id="next" title="Next month">▶</button>
+      <div class="monthlabel" id="monthLabel">Month</div>
+      <select id="yearSelect" class="iconbtn" style="padding:7px 10px;"></select>
+    </div>
+
+    <div class="spacer"></div>
+
+    <input class="search" id="search" placeholder="Search events..." />
+  </div>
+
+  <div class="main">
+    <div class="left card">
+      <div class="section-title">Mini calendar</div>
+      <table class="minical">
+        <thead>
+          <tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr>
+        </thead>
+        <tbody id="miniCalBody"></tbody>
+      </table>
+
+      <div class="section-title">Quick</div>
+      <div class="pill" id="quickJump">No date selected</div>
+      <div class="pill" id="countChip" style="margin-left:6px;">—</div>
+
+      <div class="section-title">Search results</div>
+      <div id="searchResults"></div>
+
+      <div class="footer-note" id="metaNote"></div>
+      <div class="footer-note">Tip: deep-link with <span class="kbd">#/YYYY/MM/DD</span></div>
+    </div>
+
+    <div class="center card" style="padding:12px;">
+      <table class="monthgrid">
+        <thead>
+          <tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr>
+        </thead>
+        <tbody id="monthGridBody"></tbody>
+      </table>
+    </div>
+
+    <div class="right card" id="dayPanel">
+      <div class="day-header">
+        <div>
+          <div class="day-title" id="dayTitle">Pick a day</div>
+          <div class="day-sub" id="daySub"></div>
+        </div>
+      </div>
+      <div id="dayEvents"></div>
+    </div>
+  </div>
+
+  <script src="./data/meta.js"></script>
+  <script src="./data/events_by_date.js"></script>
+  <script src="./assets/app.js"></script>
+</body>
+</html>
