@@ -3,6 +3,8 @@
 Turn a Google Calendar `.ics` export into a beautiful, browseable,
 static calendar site.
 
+<img src="https://raw.githubusercontent.com/monapdx/google-calendar-static-builder/refs/heads/main/screenshot.png">
+
 No server.\
 No uploads.\
 No tracking.\
